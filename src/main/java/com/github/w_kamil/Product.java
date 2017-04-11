@@ -2,6 +2,11 @@ package com.github.w_kamil;
 
 import java.math.BigDecimal;
 
+/** 
+ * Single product model.
+ * Stores information about single product.
+ * Barcode value is final for each product. 
+ */
 
 public class Product {
 
