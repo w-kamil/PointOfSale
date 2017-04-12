@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.StringReader;
 
 /**
- * Barcode scanner class implementation on methos "scan" simulates barcode scan
- * with bufferedreader, calls "onScan" method to its listener
+ * BarcodeScanner class implementation, on method "scan" simulates barcode scan
+ * with Bufferedreader, calls "onScan" method to its listener
  * 
  */
 
@@ -23,12 +23,15 @@ public class BarcodeScanner {
 	}
 
 	public void scan(String textToScan) {
+
 		if (onProductScanListener != null) {
 			StringReader stringReader = new StringReader(textToScan);
 			BufferedReader bufferedReader = new BufferedReader(stringReader);
 			try {
-				bufferedReader.readLine();
-				onProductScanListener.onScan(textToScan);
+				String scanResult = bufferedReader.readLine();
+				if (scanResult == null)
+					scanResult = "";
+				onProductScanListener.onScan(scanResult);
 				bufferedReader.close();
 				stringReader.close();
 			} catch (IOException e) {
@@ -37,4 +40,5 @@ public class BarcodeScanner {
 		}
 
 	}
+
 }
