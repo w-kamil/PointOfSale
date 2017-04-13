@@ -5,7 +5,7 @@ package com.github.w_kamil;
  * 
  */
 
-public class Printer {
+public class Printer implements IPrinter {
 
 	public void print(String lineToPrint) {
 		System.out.println(lineToPrint);

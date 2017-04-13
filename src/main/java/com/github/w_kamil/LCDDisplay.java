@@ -5,10 +5,9 @@ package com.github.w_kamil;
  * 
  */
 
-public class LCDDisplay {
+public class LCDDisplay implements ILCDDisplay {
 
 	public void display(String lineToDisplay) {
 		System.out.println(lineToDisplay);
 	}
-
 }

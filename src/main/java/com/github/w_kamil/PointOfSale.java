@@ -12,9 +12,9 @@ import java.util.List;
 
 public class PointOfSale implements OnProductScanListener {
 
-	private Printer printer = new Printer();
-	private LCDDisplay lcdDisplay = new LCDDisplay();
-	private DataAccessObject dataAccessObject = new DataAccessObject();
+	private IPrinter printer = new Printer();
+	private ILCDDisplay lcdDisplay = new LCDDisplay();
+	private IDataAccessObject dataAccessObject = new DataAccessObject();
 	private List<Product> currentScannedProductsList = new ArrayList<Product>();
 
 	private static final String EXIT_KEY = "exit";

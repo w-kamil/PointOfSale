@@ -14,7 +14,7 @@ import java.util.List;
  *
  */
 
-public class DataAccessObject {
+public class DataAccessObject implements IDataAccessObject{
 
 	private static String inputFIle = "./src/main/resources/products.csv";
 	private static List<Product> productsList = new ArrayList<Product>();
