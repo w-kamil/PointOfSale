@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DAO simulates handling queries to Database and providing data for Point of Sale
+ * Class simulates handling queries to Database and providing 
+ * data for Point of Sale
  *
  */
 
@@ -48,7 +49,5 @@ public class DataAccessObject {
 				return product;
 		}
 		return null;
-
 	}
-
 }

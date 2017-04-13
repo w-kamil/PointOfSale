@@ -10,6 +10,13 @@ import org.junit.Test;
 import org.junit.After;
 import org.junit.Assert;
 
+/**
+ * 
+ * Point of Sale Function test. 
+ * Tests PoS output against different scope of inputs.
+ *
+ */
+
 public class PointOfSaleTest {
 
 	List<String> barcodesList = Arrays.asList(null, "", "1234", "5900512900223", "5900512500010", "5900512980782",
@@ -25,7 +32,7 @@ public class PointOfSaleTest {
 	@Test
 	public void pointOfSaleNullTest() {
 		pointOfSale.onScan(barcodesList.get(0));
-		Assert.assertEquals("'Product not found'" + System.getProperty("line.separator"), outContent.toString());
+		Assert.assertEquals("", outContent.toString());
 	}
 
 	@Test

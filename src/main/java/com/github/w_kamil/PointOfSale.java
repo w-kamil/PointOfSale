@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class represents main module of Point of Sale. Responsible for input/output
- * connections.
+ * Class represents main Point of Sale module. 
+ * Responsible for input/output connections.
  *
  */
 
@@ -18,11 +18,12 @@ public class PointOfSale implements OnProductScanListener {
 	private List<Product> currentScannedProductsList = new ArrayList<Product>();
 
 	private static final String EXIT_KEY = "exit";
-	
 
 	public void onScan(String scannedBarcode) {
 
-		if (scannedBarcode != null && scannedBarcode.equals(EXIT_KEY)) {
+		if (scannedBarcode == null) {
+			return;
+		} else if (scannedBarcode.equals(EXIT_KEY)) {
 			BigDecimal sumAmount = new BigDecimal(0);
 			if (currentScannedProductsList.size() > 0) {
 				for (Product product : currentScannedProductsList) {
@@ -34,16 +35,15 @@ public class PointOfSale implements OnProductScanListener {
 				lcdDisplay.display(totalAmonutString);
 			}
 			currentScannedProductsList = new ArrayList<Product>();
-
-		} else if (scannedBarcode != null && scannedBarcode.equals("")) {
-			System.out.println("'Invalid bar-code'");
+		} else if (scannedBarcode.equals("")) {
+			lcdDisplay.display("'Invalid bar-code'");
 		} else {
 			Product product = dataAccessObject.searchProduct(scannedBarcode);
-			if(product != null){
+			if (product != null) {
 				currentScannedProductsList.add(product);
 				lcdDisplay.display(product.toString());
-			} else{
-				System.out.println("'Product not found'");
+			} else {
+				lcdDisplay.display("'Product not found'");
 			}
 		}
 	}
